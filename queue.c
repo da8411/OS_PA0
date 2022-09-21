@@ -69,6 +69,10 @@ void enqueue(char *string)
  */
 int dequeue(char *buffer)
 {
+	if (list_empty(&queue)){
+		return -1;
+	}
+	
 	return 0;
 }
 
