@@ -88,5 +88,8 @@ int dequeue(char *buffer)
  */
 void dump_queue(void)
 {
-	/* TODO: Implement this function */
+	struct entry *ptr;
+	list_for_each_entry(ptr, &queue, list){
+		printf("%s", ptr->string);
+	};
 }
