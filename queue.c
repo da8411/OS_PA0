@@ -69,12 +69,17 @@ void enqueue(char *string)
  */
 int dequeue(char *buffer)
 {
-	if (list_empty(&queue)){
-		return -1;
-	}
-	struct entry *addr = list_first_entry(&queue, struct entry, list);
-	list_del(&addr->list);
-	return 0;
+    if (list_empty(&queue)){
+        return -1;
+    }
+    else {
+        struct entry *addr = list_first_entry(&queue, struct entry, list);
+        strcpy(buffer, addr->string);
+        list_del_init(&addr->list);
+        free(addr->string);
+        free(addr);
+        return 0;
+    }
 }
 
 
