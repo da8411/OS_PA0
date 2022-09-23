@@ -46,6 +46,12 @@ struct entry {
  */
 void enqueue(char *string)
 {
+	struct entry *l1 = malloc(sizeof(struct entry));
+	l1->string = (char*)malloc(sizeof(char)*strlen(string)+1);
+	strcpy(l1->string, string);
+	l1->list = queue;
+
+	list_add_tail(&(l1->list), &queue);
 }
 
 
@@ -63,7 +69,11 @@ void enqueue(char *string)
  */
 int dequeue(char *buffer)
 {
-	/* TODO: Implement this function */
+	if (list_empty(&queue)){
+		return -1;
+	}
+	struct entry *addr = list_first_entry(&queue, struct entry, list);
+	list_del(&addr->list);
 	return 0;
 }
 
