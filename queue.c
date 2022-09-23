@@ -51,7 +51,7 @@ void enqueue(char *string)
 	strcpy(l1->string, string);
 	l1->list = queue;
 
-	list_add(&(l1->list), &queue);
+	list_add_tail(&(l1->list), &queue);
 }
 
 
