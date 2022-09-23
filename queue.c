@@ -90,6 +90,6 @@ void dump_queue(void)
 {
 	struct entry *ptr;
 	list_for_each_entry(ptr, &queue, list){
-		printf("%s", ptr->string);
+        fprintf(stderr, "%s\n", ptr->string);
 	};
 }
