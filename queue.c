@@ -47,11 +47,11 @@ struct entry {
 void enqueue(char *string)
 {
 	struct entry *l1 = malloc(sizeof(struct entry));
-	l1->string = string;
+	l1->string = (char*)malloc(sizeof(char)*strlen(string)+1);
+	strcpy(l1->string, string);
 	l1->list = queue;
 
-	list_add(&(l1->list), &queue);
-	free(l1);
+	list_add_tail(&(l1->list), &queue);
 }
 
 
