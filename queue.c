@@ -74,6 +74,7 @@ int dequeue(char *buffer)
     }
     else {
         struct entry *addr = list_first_entry(&queue, struct entry, list);
+        strcpy(buffer, addr->string);
         list_del_init(&addr->list);
         free(addr->string);
         free(addr);
